@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optokon-pm4212"
+version = "0.1.0"
+description = "Python interface for controlling Optokon PM-4212 optical power meter via serial connection"
+readme = "README.md"
+authors = [{name = "bongkokwei"}]
+license = {text = "MIT"}
+requires-python = ">=3.7"
+dependencies = [
+    "pyserial>=3.5"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0"
+]
+gui = [
+    "PyQt5>=5.15.0",
+    "pyqtgraph>=0.13.0",
+    "numpy>=1.20.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/bongkokwei/optokon"
+Repository = "https://github.com/bongkokwei/optokon"
+
+[tool.setuptools.packages.find]
+where = ["src"]
