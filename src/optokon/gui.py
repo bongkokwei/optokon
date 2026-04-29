@@ -23,7 +23,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QFont
 
-from optokon_PM4212 import OptokonPM4212
+from .optokon_PM4212 import OptokonPM4212
 
 # Configure logging
 logger = logging.getLogger(__name__)
