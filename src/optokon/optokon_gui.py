@@ -23,7 +23,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QFont
 
-from .optokon_pm4212 import OptokonPM4212
+from optokon_PM4212 import OptokonPM4212
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -201,13 +201,13 @@ class PowerMeterGUI(QWidget):
 
 def main():
     """Main entry point for the GUI application."""
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    )
+    # # Configure logging
+    # logging.basicConfig(
+    #     level=logging.INFO,
+    #     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    # )
 
-    logger.info("Starting Optokon PM-4212 Live Monitor")
+    # logger.info("Starting Optokon PM-4212 Live Monitor")
 
     app = QApplication(sys.argv)
     window = PowerMeterGUI()
