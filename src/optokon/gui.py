@@ -201,13 +201,13 @@ class PowerMeterGUI(QWidget):
 
 def main():
     """Main entry point for the GUI application."""
-    # # Configure logging
-    # logging.basicConfig(
-    #     level=logging.INFO,
-    #     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    # )
+    # Configure logging
+    logging.basicConfig(
+        level=logging.CRITICAL + 1,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
 
-    # logger.info("Starting Optokon PM-4212 Live Monitor")
+    logger.info("Starting Optokon PM-4212 Live Monitor")
 
     app = QApplication(sys.argv)
     window = PowerMeterGUI()
