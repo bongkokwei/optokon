@@ -98,7 +98,7 @@ with OptokonPM4212(port='COM10') as meter:
 ### Running the GUI
 
 ```bash
-python -m optokon_pm4212.gui
+python -m src/optokon/optokon_gui.py
 ```
 
 Or programmatically:
