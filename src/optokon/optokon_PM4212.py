@@ -37,8 +37,12 @@ class OptokonPM4212:
     COMMAND_DELAY = 0.05  # Delay between command and read
     NUM_CHANNELS = 4
 
-    def __init__(self, port: str, baudrate: int = STANDARD_BAUDRATE,
-                 timeout: float = STANDARD_TIMEOUT):
+    def __init__(
+        self,
+        port: str,
+        baudrate: int = STANDARD_BAUDRATE,
+        timeout: float = STANDARD_TIMEOUT,
+    ):
         """
         Initialise Optokon PM-4212 connection parameters.
 
@@ -73,7 +77,7 @@ class OptokonPM4212:
                 port=self.port,
                 baudrate=self.baudrate,
                 timeout=self.timeout,
-                write_timeout=self.WRITE_TIMEOUT
+                write_timeout=self.WRITE_TIMEOUT,
             )
             # Set hardware flow control
             self.device.dtr = True
@@ -146,7 +150,9 @@ class OptokonPM4212:
         try:
             time.sleep(self.COMMAND_DELAY)
             if self.device.in_waiting > 0:
-                response = self.device.read(self.device.in_waiting).decode("ascii").strip()
+                response = (
+                    self.device.read(self.device.in_waiting).decode("ascii").strip()
+                )
                 logger.debug(f"Received response: {response}")
                 return response
             return None
@@ -189,7 +195,9 @@ class OptokonPM4212:
                     value = float(value_str)
                     values.append(value)
                 except ValueError:
-                    logger.warning(f"Could not parse value: {value_str}, using noise floor")
+                    logger.warning(
+                        f"Could not parse value: {value_str}, using noise floor"
+                    )
                     values.append(-80.0)  # Noise floor for unparseable values
             return values
         except Exception as e:
@@ -276,8 +284,9 @@ class OptokonPM4212:
             logger.error(f"Failed to set wavelength: {e}")
             return False
 
-    def continuous_read(self, duration_seconds: float = 10.0,
-                       interval_seconds: float = 0.5) -> List[Tuple[float, List[float]]]:
+    def continuous_read(
+        self, duration_seconds: float = 10.0, interval_seconds: float = 0.5
+    ) -> List[Tuple[float, List[float]]]:
         """
         Perform continuous power readings over a specified duration.
 
@@ -337,7 +346,7 @@ if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     # Example 1: Using context manager (recommended)

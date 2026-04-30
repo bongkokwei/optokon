@@ -51,7 +51,7 @@ class PowerMeterGUI(QWidget):
         "#FF5555",  # Red
         "#55FF55",  # Green
         "#5555FF",  # Blue
-        "#FFFF55",  # Yellow
+        "#FFB555",  # Orange
     ]
 
     def __init__(self):
@@ -60,6 +60,8 @@ class PowerMeterGUI(QWidget):
         logger.info("Initialising PowerMeterGUI")
 
         self.meter = OptokonPM4212(self.DEFAULT_PORT)
+        self.setMaximumHeight(200)
+        self.setMaximumWidth(600)
 
         # Data storage for the chart (scrolling history)
         self.data_history = [np.zeros(self.MAX_HISTORY_POINTS) for _ in range(4)]
