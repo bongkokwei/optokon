@@ -46,7 +46,7 @@ pip install PyQt5 pyqtgraph numpy
 ### Import the Class
 
 ```python
-from optokon_pm4212 import OptokonPM4212
+from optokon import OptokonPM4212
 ```
 
 ## Quick Start
@@ -54,7 +54,7 @@ from optokon_pm4212 import OptokonPM4212
 ### Basic Usage
 
 ```python
-from optokon_pm4212 import OptokonPM4212
+from optokon import OptokonPM4212
 import logging
 
 # Configure logging
@@ -78,7 +78,7 @@ meter.disconnect()
 ### Using Context Manager (Recommended)
 
 ```python
-from optokon_pm4212 import OptokonPM4212
+from optokon import OptokonPM4212
 
 with OptokonPM4212(port='COM10') as meter:
     powers = meter.read_power()
@@ -98,7 +98,7 @@ with OptokonPM4212(port='COM10') as meter:
 ### Running the GUI
 
 ```bash
-python -m src/optokon/optokon_gui.py
+python -m optokon.gui
 ```
 
 Or programmatically:
@@ -305,7 +305,7 @@ python -m optokon.gui
 Here's a comprehensive example demonstrating typical usage:
 
 ```python
-from optokon_pm4212 import OptokonPM4212
+from optokon import OptokonPM4212
 import logging
 import time
 
