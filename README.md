@@ -285,7 +285,7 @@ The included GUI provides real-time monitoring of all 4 channels with:
 ### Running the GUI
 
 ```bash
-python -m optokon_pm4212.gui
+python -m optokon.gui
 ```
 
 ### GUI Features
